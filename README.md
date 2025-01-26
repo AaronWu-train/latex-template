@@ -50,8 +50,9 @@
    這將執行以下命令來編譯 `main.tex`：
 
    ```bash
-   xelatex -shell-escape main.tex
-   bibtex main
+   # If bibtex needed
+   # xelatex -shell-escape main.tex
+   # bibtex main
    xelatex -shell-escape main.tex
    xelatex -shell-escape main.tex
    ```
