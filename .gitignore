@@ -33,6 +33,7 @@
 *.tdo
 *.vrb
 *.xdy
+*.xdv
 
 # Backup files
 *~
@@ -47,3 +48,4 @@
 *.swo
 .DS_Store
 _minted/
+*.minted
