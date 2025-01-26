@@ -1,0 +1,152 @@
+% !TeX program = xelatex
+% !TeX options = -shell-escape
+% !TEX encoding = UTF-8
+
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{minted} % Code highlighting, required python and pygments
+\usepackage{titlesec}
+\usepackage[shortlabels]{enumitem}
+
+% 中文支援 (xeCJK)
+\usepackage[AutoFakeBold,AutoFakeSlant]{xeCJK}
+\setCJKmainfont{源流明體}
+\setCJKmonofont{Noto Sans CJK TC}
+
+% 自訂頁首/頁尾 (fancyhdr)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{\leftmark}			  % 左上，可用 \leftmark 顯示章節標題
+\fancyhead[R]{B13901011 吳亞倫} 
+\fancyfoot[C]{\thepage} 
+\renewcommand{\headrulewidth}{0.4pt}  % 頁首下方的線條寬度
+\renewcommand{\footrulewidth}{0pt}    % 頁尾上方的線條寬度 (不顯示)
+\setlength{\headheight}{15pt}
+
+\newtheorem*{theorem}{Theorem}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newenvironment{answer}{\begin{proof}[Answer]}{\end{proof}}
+% \titleformat{\section}{\bfseries\Large}{Section }{0pt}{}
+
+\begin{document}
+\thispagestyle{fancy} 
+
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+
+\begin{center}
+    {\Large \bfseries CS 作業標題}
+\end{center}
+
+\vspace{2em}
+
+\begin{tabular}{@{}l l}
+\textbf{Student:} & 吳亞倫 \\
+\textbf{ID:} & B13901011  \\
+\textbf{Department:} & 電機工程學系
+\end{tabular}
+\bigskip
+
+\tableofcontents
+\clearpage
+
+\section{簡介}
+本模板使用 \texttt{xeCJK} 以支援中文排版；並配置了\href{https://youtu.be/dQw4w9WgXcQ}{連結}、插入圖片、程式高亮功能。
+
+\section{常用語法}
+\subsection{Heading 2}
+\subsubsection{Heading 3}
+\textbf{BOLD FONT}
+\textit{italic font}
+\emph{emph font}
+\begin{enumerate}
+  \item 第一點
+  \item 第二點
+\end{enumerate}
+\begin{itemize}
+  \item 第一點
+  \item 第二點
+\end{itemize}
+\hrule
+\begin{quote}
+This is some quote
+\end{quote}
+\begin{quotation}
+這裡是一大段引文，比較長時選用quotation環境。
+\end{quotation}
+
+
+\section{插入圖片示範}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\textwidth]{example.png} % 請將 example.png 放在同資料夾
+    \caption{示範插入圖片}
+    \label{fig:example}
+\end{figure}
+
+\section{數學公式示範}
+\[
+    \int_{0}^{\infty} x^n e^{-x}\, dx = n!
+\]
+
+\section{程式碼語法上色示範}
+\begin{minted}[frame=lines, linenos]{python}
+def factorial(n):
+    if n <= 1:
+        return 1
+    return n * factorial(n-1)
+
+print(factorial(5))
+\end{minted}
+
+\section{看起來是一些酷酷區塊}
+
+\begin{problem}{1}
+    Lorem ipsum
+\end{problem}
+
+\begin{solution}
+    Lorem ipsum dolor sit amet
+\end{solution}
+
+\begin{exercise}{123}
+    Lorem ipsum
+    \begin{equation*}
+        \int_0^{3\pi/2}|\sin x|\,dx
+    \end{equation*}
+\end{exercise}
+
+\begin{answer}
+    Lorem ipsum dolor sit amet
+    \begin{equation*}
+        \begin{split}
+            &  \int_0^{3\pi/2}|\sin x|\,dx \\
+        \end{split}
+    \end{equation*}
+\end{answer}
+
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+
+\end{document}
+
