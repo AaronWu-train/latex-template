@@ -8,62 +8,89 @@
 % --------------------------------------------------------------
 
 \documentclass[12pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amsthm,amssymb}
-\usepackage{graphicx}
-\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref}
-\usepackage{minted} % Code highlighting, required python and pygments
-\usepackage{titlesec}
-\usepackage[shortlabels]{enumitem}
+\usepackage[margin=2cm]{geometry} % 頁面邊距設置
+\usepackage{amsmath,amssymb,amsthm} % 數學相關套件
+\usepackage{graphicx} % 圖形插入
+\usepackage[AutoFakeBold,AutoFakeSlant]{xeCJK} % 中文支援
+\usepackage{fancyhdr} % 頁首頁尾設置
+\usepackage{xcolor,changepage,mdframed} % 顏色與框線相關
+\usepackage{titlesec} % 標題格式
+\usepackage{minted} % 程式碼高亮（需安裝 Python 套件 pygments）
+\usepackage[shortlabels]{enumitem} % 列表格式
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref} % 超連結
 \graphicspath{{images}}
 
-% 中文支援 (xeCJK)
-\usepackage[AutoFakeBold,AutoFakeSlant]{xeCJK}
-\setCJKmainfont{源流明體}
+% 字體設定 (xeCJK)
+\setCJKmainfont{黑體-繁}
 \setCJKmonofont{Noto Sans CJK TC}
 
-% 自訂頁首/頁尾 (fancyhdr)
-\usepackage{fancyhdr}
+% 頁首/頁尾設定 (fancyhdr)
 \pagestyle{fancy}
-\fancyhead[L]{\leftmark}			  % 左上，可用 \leftmark 顯示章節標題
-\fancyhead[R]{B13901011 吳亞倫} 
-\fancyfoot[C]{\thepage} 
-\renewcommand{\headrulewidth}{0.4pt}  % 頁首下方的線條寬度
-\renewcommand{\footrulewidth}{0pt}    % 頁尾上方的線條寬度 (不顯示)
+\fancyhead[L]{NASA Homework 0} % 可以用 \leftmark 取代
+\fancyhead[R]{B13901011 吳亞倫}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
 \setlength{\headheight}{15pt}
 
+% tex-fmt: off
 \newtheorem*{theorem}{Theorem}
 \newenvironment{lemma}[2][Lemma]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 \newenvironment{exercise}[2][Exercise]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 \newenvironment{problem}[2][Problem]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
 \newenvironment{question}[2][Question]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 \newenvironment{corollary}[2][Corollary]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 \newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
-\newenvironment{answer}{\begin{proof}[Answer]}{\end{proof}}
-% \titleformat{\section}{\bfseries\Large}{Section }{0pt}{}
+\newenvironment{answer}{\begin{proof}[Ans]}{\end{proof}}
 
+% 樣式設定
+\renewcommand\thesubsection{\arabic{subsection}}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection.}{0.5em}{}
+
+% 自訂框線環境
+\newmdenv[
+  linewidth=2pt, linecolor=gray, backgroundcolor=gray!10,
+  topline=false, bottomline=false, rightline=false,
+  skipabove=10pt, skipbelow=10pt, innerleftmargin=10pt,
+  innerrightmargin=0pt, innertopmargin=5pt, innerbottommargin=5pt
+]{myquote}
+
+\newenvironment{mycolorbox}[1][gray]{
+  \renewmdenv[
+    linewidth=2pt, linecolor=#1, backgroundcolor=#1!10,
+    topline=false, bottomline=false, rightline=false,
+    skipabove=10pt, skipbelow=10pt, innerleftmargin=10pt,
+    innerrightmargin=0pt, innertopmargin=5pt, innerbottommargin=5pt
+  ]{myquote}
+  \begin{myquote}
+}{\end{myquote}}
+
+% Code highlighting
+\usemintedstyle{xcode}
+
+% tex-fmt: on
 \begin{document}
-\thispagestyle{fancy} 
+\thispagestyle{fancy}
 
 % --------------------------------------------------------------
 %                         Start here
 % --------------------------------------------------------------
 
 \begin{center}
-    {\Large \bfseries CS 作業標題}
+  {\Large \bfseries CS 作業標題}
 \end{center}
 
 \vspace{2em}
 
 \begin{tabular}{@{}l l}
-\textbf{Student:} & 吳亞倫 \\
-\textbf{ID:} & B13901011  \\
-\textbf{Department:} & 電機工程學系
+  \textbf{Student:} & 吳亞倫 \\
+  \textbf{ID:} & B13901011  \\
+  \textbf{Department:} & 電機工程學系
 \end{tabular}
 \bigskip
 
@@ -89,24 +116,23 @@
 \end{itemize}
 \hrule
 \begin{quote}
-This is some quote
+  This is some quote
 \end{quote}
 \begin{quotation}
-這裡是一大段引文，比較長時選用quotation環境。
+  這裡是一大段引文，比較長時選用quotation環境。
 \end{quotation}
-
 
 \section{插入圖片示範}
 \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.3\textwidth]{example.png} % 請將 example.png 放在同資料夾
-    \caption{示範插入圖片}
-    \label{fig:example}
+  \centering
+  \includegraphics[width=0.3\textwidth]{example.png} % 請將 example.png 放在同資料夾
+  \caption{示範插入圖片}
+  \label{fig:example}
 \end{figure}
 
 \section{數學公式示範}
 \[
-    \int_{0}^{\infty} x^n e^{-x}\, dx = n!
+  \int_{0}^{\infty} x^n e^{-x}\, dx = n!
 \]
 
 \section{程式碼語法上色示範}
@@ -122,27 +148,27 @@ print(factorial(5))
 \section{看起來是一些酷酷區塊}
 
 \begin{problem}{1}
-    Lorem ipsum
+  Lorem ipsum
 \end{problem}
 
 \begin{solution}
-    Lorem ipsum dolor sit amet
+  Lorem ipsum dolor sit amet
 \end{solution}
 
 \begin{exercise}{123}
-    Lorem ipsum
-    \begin{equation*}
-        \int_0^{3\pi/2}|\sin x|\,dx
-    \end{equation*}
+  Lorem ipsum
+  \begin{equation*}
+    \int_0^{3\pi/2}|\sin x|\,dx
+  \end{equation*}
 \end{exercise}
 
 \begin{answer}
-    Lorem ipsum dolor sit amet
-    \begin{equation*}
-        \begin{split}
-            &  \int_0^{3\pi/2}|\sin x|\,dx \\
-        \end{split}
-    \end{equation*}
+  Lorem ipsum dolor sit amet
+  \begin{equation*}
+    \begin{split}
+      &  \int_0^{3\pi/2}|\sin x|\,dx \\
+    \end{split}
+  \end{equation*}
 \end{answer}
 
 % --------------------------------------------------------------
@@ -150,4 +176,3 @@ print(factorial(5))
 % --------------------------------------------------------------
 
 \end{document}
-
