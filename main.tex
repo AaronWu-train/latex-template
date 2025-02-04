@@ -11,10 +11,12 @@
 \usepackage[margin=2cm]{geometry} % 頁面邊距設置
 \usepackage{amsmath,amssymb,amsthm} % 數學相關套件
 \usepackage{graphicx} % 圖形插入
+\usepackage{booktabs} % 表格線條
 \usepackage[AutoFakeBold,AutoFakeSlant]{xeCJK} % 中文支援
 \usepackage{fancyhdr} % 頁首頁尾設置
 \usepackage{xcolor,changepage,mdframed} % 顏色與框線相關
 \usepackage{titlesec} % 標題格式
+\usepackage{setspace} % 行距
 \usepackage{minted} % 程式碼高亮（需安裝 Python 套件 pygments）
 \usepackage[shortlabels]{enumitem} % 列表格式
 \usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=blue]{hyperref} % 超連結
@@ -49,8 +51,8 @@
 \newenvironment{answer}{\begin{proof}[Ans]}{\end{proof}}
 
 % 樣式設定
-\renewcommand\thesubsection{\arabic{subsection}}
-\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection.}{0.5em}{}
+% \renewcommand\thesubsection{\arabic{subsection}}
+% \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection.}{0.5em}{}
 
 % 自訂框線環境
 \newmdenv[
@@ -70,8 +72,9 @@
   \begin{myquote}
 }{\end{myquote}}
 
-% Code highlighting
-\usemintedstyle{xcode}
+\linespread{1.1}
+% \usemintedstyle{xcode}
+\setminted{frame=lines, linenos, framesep=2mm, breaklines=true, breakanywhere=true, autogobble=true}
 
 % tex-fmt: on
 \begin{document}
@@ -136,7 +139,7 @@
 \]
 
 \section{程式碼語法上色示範}
-\begin{minted}[frame=lines, linenos]{python}
+\begin{minted}{python}
 def factorial(n):
     if n <= 1:
         return 1
@@ -151,9 +154,9 @@ print(factorial(5))
   Lorem ipsum
 \end{problem}
 
-\begin{solution}
+\begin{answer}
   Lorem ipsum dolor sit amet
-\end{solution}
+\end{answer}
 
 \begin{exercise}{123}
   Lorem ipsum
@@ -162,14 +165,14 @@ print(factorial(5))
   \end{equation*}
 \end{exercise}
 
-\begin{answer}
+\begin{solution}
   Lorem ipsum dolor sit amet
   \begin{equation*}
     \begin{split}
       &  \int_0^{3\pi/2}|\sin x|\,dx \\
     \end{split}
   \end{equation*}
-\end{answer}
+\end{solution}
 
 % --------------------------------------------------------------
 %     You don't have to mess with anything below this line.
