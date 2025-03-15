@@ -26,10 +26,11 @@
 3. **安裝必要的軟體**
 
    - **Python**：請確保系統已安裝 Python，建議使用最新版本。
-   - **Pygments**：需要安裝 Pygments 套件以支援程式碼語法高亮。安裝方法如下：
+   - **Pygments, latexminted**：需要安裝 Pygments 套件以支援程式碼語法高亮。安裝方法如下：
 
      ```bash
      pip install Pygments
+     pip install latexminted
      ```
 
    - **TeX Live**：建議安裝 [TeX Live](https://www.tug.org/texlive/)，這是一個跨平台的 TeX 發行版，包含了大部分常用的 TeX 套件和工具。
