@@ -85,7 +85,7 @@
   ]{myquote}
   \begin{myquote}
   }{
-  \end{myquote}}
+\end{myquote}}
 
 % 全局樣式
 \linespread{1.1}
@@ -117,85 +117,11 @@
 \end{tabular}
 \bigskip
 
-\tableofcontents
-\clearpage
+% -----------------------------------------------------------
+\section*{Problem 1}
 
-\section{簡介}
-本模板使用 \texttt{xeCJK} 以支援中文排版；並配置了\href{https://youtu.be/dQw4w9WgXcQ}{連結}、插入圖片、程式高亮功能。
-
-\section{常用語法}
-\subsection{Heading 2}
-\subsubsection{Heading 3}
-\textbf{BOLD FONT}
-\textit{italic font}
-\emph{emph font}
-\begin{enumerate}
-  \item 第一點
-  \item 第二點
-\end{enumerate}
-\begin{itemize}
-  \item 第一點
-  \item 第二點
-\end{itemize}
-\hrule
-\begin{quote}
-  This is some quote
-\end{quote}
-\begin{quotation}
-  這裡是一大段引文，比較長時選用quotation環境。
-\end{quotation}
-
-\section{插入圖片示範}
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.3\textwidth]{example.png} % 請將 example.png 放在同資料夾
-  \caption{示範插入圖片}
-  \label{fig:example}
-\end{figure}
-
-\section{數學公式示範}
-\[
-  \int_{0}^{\infty} x^n e^{-x}\, dx = n!
-\]
-
-\section{程式碼語法上色示範}
-\begin{minted}{python}
-def factorial(n):
-    if n <= 1:
-        return 1
-    return n * factorial(n-1)
-
-print(factorial(5))
-\end{minted}
-
-\section{看起來是一些酷酷區塊}
-
-\begin{problem}{1}
-  Lorem ipsum
-\end{problem}
-
-\begin{answer}
-  Lorem ipsum dolor sit amet
-\end{answer}
-
-\begin{exercise}{123}
-  Lorem ipsum
-  \begin{equation*}
-    \int_0^{3\pi/2}|\sin x|\,dx
-  \end{equation*}
-\end{exercise}
-
-\begin{solution}
-  Lorem ipsum dolor sit amet
-  \begin{equation*}
-    \begin{split}
-      &  \int_0^{3\pi/2}|\sin x|\,dx \\
-    \end{split}
-  \end{equation*}
-\end{solution}
-
-% --------------------------------------------------------------
-%     You don't have to mess with anything below this line.
-% --------------------------------------------------------------
+% -----------------------------------------------------------
+%    You don't have to mess with anything below this line.
+% -----------------------------------------------------------
 
 \end{document}
